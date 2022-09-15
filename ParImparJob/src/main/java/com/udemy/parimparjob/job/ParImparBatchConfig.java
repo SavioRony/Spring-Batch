@@ -1,0 +1,31 @@
+package com.udemy.parimparjob.job;
+
+import com.udemy.parimparjob.step.ImprimeParImparStep;
+import org.springframework.batch.core.Job;
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
+import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
+import org.springframework.batch.core.launch.support.RunIdIncrementer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@EnableBatchProcessing
+public class ParImparBatchConfig {
+    @Autowired
+    private JobBuilderFactory jobBuilderFactory;
+
+	@Autowired
+	private ImprimeParImparStep step;
+
+    @Bean
+    public Job imprimeParImparJob() {
+        return jobBuilderFactory
+                .get("imprimeParImparJob")
+                .start(step.parImparStep())
+                .incrementer(new RunIdIncrementer())
+                .build();
+    }
+
+
+}
