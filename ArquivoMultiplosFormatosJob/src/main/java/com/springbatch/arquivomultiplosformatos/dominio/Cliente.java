@@ -1,5 +1,6 @@
 package com.springbatch.arquivomultiplosformatos.dominio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
@@ -8,7 +9,7 @@ public class Cliente {
 	private String idade;
 	private String email;
 
-	private List<Transacao> transacaos;
+	private List<Transacao> transacaos = new ArrayList<>();
 
 	public String getNome() {
 		return nome;
