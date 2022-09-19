@@ -8,8 +8,7 @@ public class Cliente {
 	private String sobrenome;
 	private String idade;
 	private String email;
-
-	private List<Transacao> transacaos = new ArrayList<>();
+	private List<Transacao> transacoes = new ArrayList<>();
 
 	public String getNome() {
 		return nome;
@@ -43,22 +42,19 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public List<Transacao> getTransacaos() {
-		return transacaos;
+	public List<Transacao> getTransacoes() {
+		return transacoes;
 	}
 
-	public void setTransacaos(List<Transacao> transacaos) {
-		this.transacaos = transacaos;
+	public void setTransacoes(List<Transacao> transacoes) {
+		this.transacoes = transacoes;
 	}
 
 	@Override
 	public String toString() {
-		return "Cliente{" +
-				"nome='" + nome + '\'' +
-				", sobrenome='" + sobrenome + '\'' +
-				", idade='" + idade + '\'' +
-				", email='" + email + '\'' +
-				", transacaos=" + transacaos +
-				'}';
+		return "Cliente{" + "nome='" + nome + "'" + ", sobrenome ='" + sobrenome + "'" + ", idade='" + idade + "'"
+				+ ", email='" + email + "'" +
+				(transacoes.isEmpty() ? "" : ", transacoes=" + transacoes)
+				+ '}';
 	}
 }
